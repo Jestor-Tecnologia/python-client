@@ -1,0 +1,18 @@
+[project]
+name = "jestor-sdk-python"
+version = "0.0.1"
+description = "Jestor SDK"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Jestor-Tecnologia/sdk-python"
+"Bug Tracker" = "https://github.com/Jestor-Tecnologia/sdk-python/issues"
+
+[build-system]
+requires = ["requests"]
