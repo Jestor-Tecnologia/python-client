@@ -18,13 +18,16 @@ class User:
             ]
         }
         
-        return self.client.jestor_call_functions('fetchUsers', arguments)
+        return self.client.jestorCallFunctions('fetchUsers', arguments)
     
     def __getattr__(self, name, arguments = None):
-        def function(arguments):
-            arguments = {'arguments': arguments}
+        def function(arguments = None):
+            data = {'arguments': []}
             
-            return self.client.jestor_call_functions(name, arguments)
+            if arguments != None:
+                data = self.appendArgs(arguments, data)
+            
+            return self.client().jestorCallFunctions(name, data)
         return function
     
     def serializeFilters(self, filters: List[Filter]):

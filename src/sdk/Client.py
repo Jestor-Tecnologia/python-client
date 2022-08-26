@@ -8,7 +8,7 @@ class Client:
         self.token = token 
         self.org = org
         
-    def jestor_call_functions(self, path, arguments = {}, files = None):
+    def jestorCallFunctions(self, path, arguments = {}, files = None):
         try:
             headers = {}
             headers["Accept"] = "application/json"
@@ -27,7 +27,7 @@ class Client:
             response_json = response.json()
             
             if response.status_code > 299:
-                return self.error_api(response.status_code, response_json['data']['message'])
+                return self.errorApi(response.status_code, response_json['data']['message'])
             
             return response_json
         except requests.exceptions.RequestException as e: 
@@ -35,5 +35,5 @@ class Client:
         except ErrorApi as e: 
             raise e
         
-    def error_api(self, status_code, message):
+    def errorApi(self, status_code, message):
         raise ErrorApi(status_code, message)

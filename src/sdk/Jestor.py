@@ -29,7 +29,7 @@ class Jestor:
             if arguments != None:
                 data = self.appendArgs(arguments, data)
             
-            return self.client().jestor_call_functions(name, data)
+            return self.client().jestorCallFunctions(name, data)
         return function
     
     def appendArgs(self, arguments, data):

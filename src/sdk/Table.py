@@ -14,7 +14,7 @@ class Table:
             if (arguments != None):
                 data = self.appendArgs(arguments, data)
                     
-            return self.client.jestor_call_functions(name, data)
+            return self.client.jestorCallFunctions(name, data)
         return function
         
         
@@ -33,21 +33,21 @@ class Table:
             ]
         }
         
-        return self.client.jestor_call_functions('fetch', arguments)
+        return self.client.jestorCallFunctions('fetch', arguments)
     
     def insert(self, data):
         arguments = {'arguments': [self.table_name, data]}
-        return self.client.jestor_call_functions('createObject', arguments)
+        return self.client.jestorCallFunctions('createObject', arguments)
     
     def update(self, recordId: int, data: dict, additional_action_data: list = []):
         data.update({'id_'+self.table_name: recordId})
         arguments = {'arguments': [self.table_name, data, additional_action_data]}
         print(data)
-        return self.client.jestor_call_functions('updateObject', arguments)
+        return self.client.jestorCallFunctions('updateObject', arguments)
     
     def delete(self, recordId: int):
         arguments = {'arguments': [self.table_name, recordId]}
-        return self.client.jestor_call_functions('removeObject', arguments)
+        return self.client.jestorCallFunctions('removeObject', arguments)
     
     def serializeFilters(self, filters: List[Filter]):
         serializedFilters = []

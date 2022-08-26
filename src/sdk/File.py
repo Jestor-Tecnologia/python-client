@@ -20,7 +20,7 @@ class File:
             ]
         }
         
-        response = self.client.jestor_call_functions('getFiles', arguments)
+        response = self.client.jestorCallFunctions('getFiles', arguments)
         return response['data']
         
     def add(self, configFile: dict):
@@ -32,7 +32,7 @@ class File:
             ]
         }
         
-        response = self.client.jestor_call_functions('addFile', arguments)
+        response = self.client.jestorCallFunctions('addFile', arguments)
         
         self.appendFiles(response['data'])
         
@@ -48,7 +48,7 @@ class File:
             ]
         }
         
-        response = self.client.jestor_call_functions('updateFile', arguments)
+        response = self.client.jestorCallFunctions('updateFile', arguments)
         
         self.removeFiles(fileId)
         self.appendFiles(response['data'])
@@ -64,7 +64,7 @@ class File:
             ]
         }
         
-        self.client.jestor_call_functions('deleteFile', arguments)
+        self.client.jestorCallFunctions('deleteFile', arguments)
         self.removeFiles(fileId)
         
         return self.files
