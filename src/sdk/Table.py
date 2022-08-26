@@ -7,15 +7,14 @@ class Table:
         self.client = Client(token, org)
         self.table_name = table_name
         
-    def __getattr__(self, name, arguments):
-        def function(arguments):
-            arguments = {'arguments': [
-                    self.table_name,
-                    arguments
-                ]
-            }
+    def __getattr__(self, name, arguments: list = None):
+        def function(arguments: list = None):
+            data = {'arguments': [self.table_name]}
             
-            return self.client.jestor_call_functions(name, arguments)
+            if (arguments != None):
+                data = self.appendArgs(arguments, data)
+                    
+            return self.client.jestor_call_functions(name, data)
         return function
         
         
@@ -23,7 +22,6 @@ class Table:
         if (filters != None):
             filters = self.serializeFilters(filters)
         
-               
         arguments = {'arguments': [
                 self.table_name,
                 filters,
@@ -35,20 +33,20 @@ class Table:
             ]
         }
         
-        response = self.client.jestor_call_functions('fetch', arguments)
-        
-        return response['data']
+        return self.client.jestor_call_functions('fetch', arguments)
     
     def insert(self, data):
         arguments = {'arguments': [self.table_name, data]}
         return self.client.jestor_call_functions('createObject', arguments)
     
-    def update(self, data: object, additional_action_data):
+    def update(self, recordId: int, data: dict, additional_action_data: list = []):
+        data.update({'id_'+self.table_name: recordId})
         arguments = {'arguments': [self.table_name, data, additional_action_data]}
+        print(data)
         return self.client.jestor_call_functions('updateObject', arguments)
     
-    def delete(self, record_id):
-        arguments = {'arguments': [self.table_name, record_id]}
+    def delete(self, recordId: int):
+        arguments = {'arguments': [self.table_name, recordId]}
         return self.client.jestor_call_functions('removeObject', arguments)
     
     def serializeFilters(self, filters: List[Filter]):
@@ -58,5 +56,14 @@ class Table:
             serializedFilters.append(filter.serialize())
             
         return serializedFilters
+    
+    def appendArgs(self, args, data):
+        for argument in args:
+            if isinstance(argument, Filter):
+                argument = self.serializeFilters(argument)
+                
+            data['arguments'].append(argument)
+                
+        return data
     
     
