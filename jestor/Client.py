@@ -1,7 +1,7 @@
 import requests
 import json
 
-from jestor.exception.ErrorApi import ErrorApi
+from jestor.exception.JestorApiException import JestorApiException
 
 class Client:
     def __init__(self, token, org):
@@ -25,12 +25,12 @@ class Client:
             )
             
             if response.status_code > 299:
-                raise JestorApiException(status_code, message)
+                raise JestorApiException(response)
             
             response_json = response.json()
 
-            return response_json
-        except requests.exceptions.RequestException as e: 
+            return response_json['data']
+        except requests.exceptions.RequestException as e:
             raise e
-        except ErrorApi as e: 
+        except JestorApiException as e:
             raise e
