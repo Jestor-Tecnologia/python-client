@@ -1,7 +1,7 @@
 import requests
 import json
 
-from sdk.Exception.ErrorApi import ErrorApi
+from jestor.exception.ErrorApi import ErrorApi
 
 class Client:
     def __init__(self, token, org):

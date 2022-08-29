@@ -1,9 +1,9 @@
 from typing import List
-from sdk.Client import Client
-from sdk.Filter.Filter import Filter
-from sdk.Table import Table
-from sdk.User import User
-from sdk.File import File
+from jestor.Client import Client
+from jestor.filter.Filter import Filter
+from jestor.Table import Table
+from jestor.User import User
+from jestor.File import File
 
 class Jestor:
     def __init__(self, token, org):
