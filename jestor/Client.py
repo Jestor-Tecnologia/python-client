@@ -13,9 +13,9 @@ class Client:
             headers = {}
             headers["Accept"] = "application/json"
             headers["Authorization"] = f'Bearer {self.token}'
-            headers["Host"] = f'https://{self.org}.jestor.com'
+            headers["Host"] = f'https://{self.org}.api.jestor.com'
             
-            url = f'https://{self.org}.jestor.com/v3/low-code-execution/{path}'
+            url = f'https://{self.org}.api.jestor.com/v3/low-code-execution/{path}'
             
             response = requests.post(
                 url,
