@@ -13,6 +13,7 @@ class Client:
             headers = {}
             headers["Accept"] = "application/json"
             headers["Authorization"] = f'Bearer {self.token}'
+            headers["User-Agent"] = 'Jestor Python Client'
             
             url = f'https://{self.org}.api.jestor.com/v3/low-code-execution/{path}'
             
