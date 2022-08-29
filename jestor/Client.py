@@ -24,11 +24,11 @@ class Client:
                 headers = headers
             )
             
-            response_json = response.json()
-            
             if response.status_code > 299:
-                return self.errorApi(response.status_code, response_json['data']['message'])
+                return self.errorApi(response.status_code, response)
             
+            response_json = response.json()
+
             return response_json
         except requests.exceptions.RequestException as e: 
             raise e
