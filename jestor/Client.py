@@ -25,7 +25,7 @@ class Client:
             )
             
             if response.status_code > 299:
-                return self.errorApi(response.status_code, response)
+                raise JestorApiException(status_code, message)
             
             response_json = response.json()
 
@@ -34,6 +34,3 @@ class Client:
             raise e
         except ErrorApi as e: 
             raise e
-        
-    def errorApi(self, status_code, message):
-        raise ErrorApi(status_code, message)

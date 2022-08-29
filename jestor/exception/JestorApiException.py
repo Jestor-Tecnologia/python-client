@@ -1,4 +1,4 @@
-class ErrorApi(Exception):
+class JestorApiException(Exception):
     def __init__(self, status_code, response, *args):
         super().__init__(args)
         self.status_code = status_code
