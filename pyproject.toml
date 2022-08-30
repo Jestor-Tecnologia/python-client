@@ -1,6 +1,6 @@
 [project]
 name = "jestor"
-version = "0.0.1"
+version = "1.0.1"
 description = "Jestor Python Client"
 readme = "README.md"
 license = { file="LICENSE" }
