@@ -1,5 +1,8 @@
 # Jestor SDK for Python - Version Beta
 
+[![PyPI](https://img.shields.io/pypi/v/jestor.svg)](https://pypi.python.org/pypi/jestor)
+[![PyPI](https://img.shields.io/pypi/pyversions/jestor.svg)](https://pypi.python.org/pypi/jestor)
+
 Jestor client library for python.
 
 
