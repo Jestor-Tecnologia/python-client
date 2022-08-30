@@ -1,1 +1,27 @@
+*.py[co]
+
 .idea
+
+# Packages
+*.egg
+*.egg-info
+dist
+/build/
+eggs
+parts
+bin
+develop-eggs
+.installed.cfg
+scratch
+env
+venv*
+
+# Installer logs
+pip-log.txt
+
+
+# PyEnv
+.python-version
+
+
+*__pycache__*

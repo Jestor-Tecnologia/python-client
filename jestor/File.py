@@ -1,5 +1,5 @@
 import json
-from sdk.Client import Client
+from jestor.Client import Client
 
 class File:
     files = []

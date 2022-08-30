@@ -1,6 +1,6 @@
 from typing import List
-from sdk.Client import Client
-from sdk.Filter.Filter import Filter
+from jestor.Client import Client
+from jestor.filter.Filter import Filter
 
 class User:
     def __init__(self, token, org):

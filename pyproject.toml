@@ -1,7 +1,7 @@
 [project]
-name = "jestor-sdk-python"
-version = "0.0.1"
-description = "Jestor SDK"
+name = "jestor"
+version = "1.0.1"
+description = "Jestor Python Client"
 readme = "README.md"
 license = { file="LICENSE" }
 requires-python = ">=3.7"
@@ -11,8 +11,8 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/Jestor-Tecnologia/sdk-python"
-"Bug Tracker" = "https://github.com/Jestor-Tecnologia/sdk-python/issues"
+"Homepage" = "https://github.com/Jestor-Tecnologia/python-client"
+"Bug Tracker" = "https://github.com/Jestor-Tecnologia/python-client/issues"
 
 [build-system]
 requires = ["requests"]
