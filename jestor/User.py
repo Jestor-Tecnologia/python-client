@@ -3,8 +3,8 @@ from jestor.Client import Client
 from jestor.filter.Filter import Filter
 
 class User:
-    def __init__(self, token, org):
-        self.client = Client(token, org)
+    def __init__(self, token, org, isDev = False, depth = None):
+        self.client = Client(token, org, isDev, depth)
         
     def get(self, filters: List[Filter] = None, limit: int = 100, page: int = 1, sort: str = None):
         if (filters != None):
