@@ -19,7 +19,7 @@ class Client:
 
             jestor_user_agent = os.getenv('jestor_user_agent')
             if jestor_user_agent is not None:
-                headers["User-Agent"] = 'jestor-python-sdk/ + jestor_user_agent'
+                headers["User-Agent"] = f'jestor-python-sdk/{jestor_user_agent}'
             else:
                 headers["User-Agent"] = 'jestor-python-sdk'
 
