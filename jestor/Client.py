@@ -19,9 +19,9 @@ class Client:
 
             jestor_user_agent = os.getenv('jestor_user_agent')
             if jestor_user_agent is not None:
-                headers["User-Agent"] = 'Jestor Python Runner'
+                headers["User-Agent"] = 'jestor-python-sdk/ + jestor_user_agent'
             else:
-                headers["User-Agent"] = 'Jestor Python Client'
+                headers["User-Agent"] = 'jestor-python-sdk'
 
             jestor_local = os.getenv('jestor_host_local')
             if jestor_local is not None:
