@@ -3,8 +3,8 @@ from jestor.Client import Client
 from jestor.filter.Filter import Filter
 
 class Table:
-    def __init__(self, token, org, table_name):
-        self.client = Client(token, org)
+    def __init__(self, token, org, table_name, depth = None):
+        self.client = Client(token, org, depth)
         self.table_name = table_name
         
     def __getattr__(self, name, arguments: list = None):
