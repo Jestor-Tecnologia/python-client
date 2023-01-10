@@ -6,15 +6,16 @@ from jestor.User import User
 from jestor.File import File
 
 class Jestor:
-    def __init__(self, token, org):
+    def __init__(self, token, org, depth = None):
         self.token = token
         self.org = org
+        self.depth = depth
     
     def client(self)-> Client:
-        return Client(self.token, self.org)
+        return Client(self.token, self.org, self.depth)
     
     def table(self, table_name) -> Table:
-        return Table(self.token, self.org, table_name)
+        return Table(self.token, self.org, table_name, self.depth)
     
     def user(self) -> User:
         return User(self.token, self.org)
