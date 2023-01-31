@@ -27,8 +27,17 @@ class User:
             if arguments != None:
                 data = self.appendArgs(arguments, data)
             
-            return self.client().jestorCallFunctions(name, data)
+            return self.client.jestorCallFunctions(name, data)
         return function
+    
+    def appendArgs(self, arguments, data):
+        for argument in arguments:
+            if isinstance(argument, list) and isinstance(argument[0], Filter):
+                argument = self.serializeFilters(argument)
+                
+            data['arguments'].append(argument)
+                
+        return data
     
     def serializeFilters(self, filters: List[Filter]):
         serializedFilters = []
