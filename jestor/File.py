@@ -21,7 +21,7 @@ class File:
         }
         
         response = self.client.jestorCallFunctions('getFiles', arguments)
-        return response['data']
+        return response
         
     def add(self, configFile: dict):
         arguments = {'arguments': [
@@ -34,7 +34,7 @@ class File:
         
         response = self.client.jestorCallFunctions('addFile', arguments)
         
-        self.appendFiles(response['data'])
+        self.appendFiles(response)
         
         return self.files
     
@@ -51,7 +51,7 @@ class File:
         response = self.client.jestorCallFunctions('updateFile', arguments)
         
         self.removeFiles(fileId)
-        self.appendFiles(response['data'])
+        self.appendFiles(response)
         
         return self.files
     
