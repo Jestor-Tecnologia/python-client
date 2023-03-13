@@ -1,6 +1,6 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 setup(
     name='Jestor',
     version='1.0.3',
-    packages=find_packages('jestor', 'jestor.exception', 'jestor.filter'),
+    packages=['jestor', 'jestor.exception', 'jestor.filter'],
 )
