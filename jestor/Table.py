@@ -42,7 +42,6 @@ class Table:
     def update(self, recordId: int, data: dict, additional_action_data: list = []):
         data.update({'id_'+self.table_name: recordId})
         arguments = {'arguments': [self.table_name, data, additional_action_data]}
-        print(data)
         return self.client.jestorCallFunctions('updateObject', arguments)
     
     def delete(self, recordId: int):
