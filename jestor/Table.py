@@ -18,7 +18,7 @@ class Table:
         return function
         
         
-    def get(self, filters: List[Filter] = None, limit: int = 100, page: int = 1, sort: str = None, fields_to_select = None, fetch_type = 'single'): 
+    def get(self, filters: List[Filter] = None, limit: int = 100, page: int = 1, sort: str = None, fields_to_select = None, fetch_type = 'single', operator = 'AND'): 
         if (filters != None):
             filters = self.serializeFilters(filters)
         
@@ -29,7 +29,8 @@ class Table:
                 page,
                 sort,
                 fields_to_select,
-                fetch_type
+                fetch_type,
+                operator
             ]
         }
         
