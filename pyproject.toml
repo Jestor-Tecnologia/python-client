@@ -15,4 +15,5 @@ classifiers = [
 "Bug Tracker" = "https://github.com/Jestor-Tecnologia/python-client/issues"
 
 [build-system]
-requires = ["requests"]
+requires = ["requests", "setuptools >= 40.9.0"]
+build-backend = "setuptools.build_meta"
